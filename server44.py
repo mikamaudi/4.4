@@ -15,6 +15,13 @@ class Server44:
         print(msg)
         print(headers)
         print(data)
+        res, url, cmd = Protocol.check_msg(msg)
+        if res:
+            print(url)
+
+            # generate response...
+
+            # senf response ...
 
         client_socket.close()
         server_data = " "

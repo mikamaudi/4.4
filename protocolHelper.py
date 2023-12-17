@@ -21,4 +21,11 @@ class Protocol:
         #return results:
         return cmd, headers[1:], msg_parts[1] #cmd(first header), headers, data
 
-    def check_msg(thesocket):
+    def check_msg(data: str):
+        # GET <url> HTTP/1.1
+        cmd_parts = data.split(" ")
+        if len(cmd_parts) == 3 and cmd_parts[0] == "GET" and cmd_parts[2] == "HTTP/1.1":
+            return True, cmd_parts[1], "GET"
+        return False, None, None
+
+
